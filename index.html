@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>: Weather Forecast Application - SAMIM MONDAL - INTERNSHALA </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-200 min-h-screen flex flex-col">
+
+    <!-- Header  with heading of that application-->
+    <header class="bg-blue-900 w-full h-16 flex justify-center items-center">
+      <h1 class="text-white text-3xl font-semibold tracking-wide">Weather Dashboard</h1>
+    </header>
+  
+    <!-- Main Body Section consists of two section : 1. Left section 2. Right Section -->
+    <section class="flex flex-1 flex-col md:flex-row">
+      
+      <!-- Left Section with Search Box , current location access  and Recently searched cities Dropdown-->
+<div class="md:w-2/5 p-6 md:p-10 flex flex-col gap-5">
+    <h2 class="text-lg font-semibold">Enter a City Name</h2>
+    <input id="city-input" type="text" placeholder="E.g. Kolkata, Mumbai, Delhi" class="border-2 border-gray-300 rounded px-4 py-2 font-semibold placeholder-gray-600">
+    <button id="search-button" class="bg-blue-700 text-white font-semibold py-2 rounded hover:bg-blue-800">Search</button>
+    <div class="flex items-center justify-center gap-2 h-8">
+      <span class="block w-full h-0.5 bg-gray-700"></span>
+      <span>or</span>
+      <span class="block w-full h-0.5 bg-gray-700"></span>
+    </div>
+    <button id="current-location" class="bg-gray-700 text-white font-semibold py-2 rounded hover:bg-gray-800">Use Current Location</button>
+  
+    <!-- Recently Searched Cities Dropdown -->
+    <div class="relative mt-4">
+      <button id="recent-cities-dropdown" class="bg-gray-700 text-white font-semibold py-2 hover:bg-gray-800 w-full text-center">
+        Recently Searched Cities
+      </button>
+      <ul id="recent-cities-list" class="absolute left-0  w-full bg-gray-700 text-white shadow-lg  hidden">
+        <!-- dropdown cities will show by app.js  -->
+      </ul>
+    </div>
+  </div>
+  
+  
+      <!-- Right Section with  Weather Info and 5 day's weather Report in Card -->
+      <div class="md:w-3/5 p-6 md:p-10 flex flex-col gap-6" id="weather-info">
+        <!-- Top Container: Current Weather -->
+        <div id="current-weather" class="bg-blue-900 rounded-lg p-6 flex gap-4 items-center hidden">
+          <div class="flex-1 text-white">
+            <h3 id="location" class="font-semibold text-lg"></h3>
+            <p>Temperature: <span id="temperature" class="font-bold"></span>&deg;C.</p>
+            <p>Wind: <span id="wind" class="font-bold"></span> M/S</p>
+            <p>Humidity: <span id="humidity" class="font-bold"></span>%</p>
+          </div>
+          <div class="flex justify-center items-center">
+            <img id="weather-icon" src="" alt="Weather Icon" class="w-24 h-auto hidden">
+          </div>
+        </div>
+  
+        <!-- 5-Day Forecast Heading -->
+        <div>
+          <h2 class="text-2xl font-bold">5-Day Forecast</h2>
+        </div>
+  
+        <!-- 5-Day Forecast Cards -->
+        <div id="forecast" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"></div>
+      </div>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
